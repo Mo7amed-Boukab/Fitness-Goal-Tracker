@@ -1,12 +1,14 @@
 import Button from "./Button";
 import CardMessage from "./CardMessage";
-import { useEffect, useState } from "react";
+import Modal from "./Modal";
 import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+
 
 const CardObjective = () => {
   const [goals, setGoals] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [goalToEdit, setGoalToEdit] = useState(null);
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("goals")) || [];
@@ -17,6 +19,18 @@ const CardObjective = () => {
     const newGoals = goals.filter((_, i) => i !== index);
     setGoals(newGoals);
     localStorage.setItem("goals", JSON.stringify(newGoals));
+  };
+
+  const handleEdit = (goal) => {
+    setGoalToEdit(goal);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setGoalToEdit(null);
+    const storedData = JSON.parse(localStorage.getItem("goals")) || [];
+    setGoals(storedData);
   };
 
   return (
@@ -33,7 +47,7 @@ const CardObjective = () => {
             </div>
             <div className="card-actions">
               <Button name="Nouveau progrès" />
-              <button className="icon-button edit">
+              <button className="icon-button edit" onClick={() => handleEdit(obj)}>
                 <i className="fas fa-pen-to-square"></i>
               </button>
             </div>
@@ -44,6 +58,9 @@ const CardObjective = () => {
           content="Vous n'avez pas encore d'objectifs. Commencez dès maintenant a ajouter
            des objectif et suivi vos progression !"
         />
+      )}
+      {isModalOpen && (
+        <Modal onClose={handleCloseModal} goalToEdit={goalToEdit} />
       )}
     </>
   );
