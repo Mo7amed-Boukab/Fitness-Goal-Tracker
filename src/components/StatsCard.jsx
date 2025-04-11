@@ -1,8 +1,8 @@
-const StatsCard = ({ color, title, number }) => {
+const StatsCard = ({ title, number, color }) => {
   return (
     <div className={`stats-card ${color}`}>
-      <div className="stats-title">{title}</div>
-      <div className="stats-number">{number}</div>
+      <p className="stats-title">{title}</p>
+      <p className="stats-number">{number}</p>
     </div>
   );
 };
