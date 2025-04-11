@@ -1,7 +1,8 @@
 import ProgressionCard from "./ProgressionCard";
 import StatsCard from "./StatsCard";
 
-const Performance = () => {
+const ProgressionSection = () => {
+ 
   return (
     <>
       <div className="stats-cards-container">
@@ -10,12 +11,10 @@ const Performance = () => {
       </div>
 
       <h2 className="progression-title">Progression</h2>
-
       <ProgressionCard/>
-    
      
     </>
   );
 };
 
-export default Performance;
+export default ProgressionSection;

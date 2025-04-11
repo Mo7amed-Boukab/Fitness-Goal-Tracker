@@ -1,15 +1,12 @@
 import Button from "./Button";
 
-const Header = () => {
-  
- return (
-     <div className="header">
-        <h1 className="title">Fit Tracker</h1>
-        <Button name="Ajouter un objectif"></Button>
-      </div>
-      
-
- );
+const Header = ({ addObjective }) => {
+  return (
+    <div className="header">
+      <h1 className="title">Fit Tracker</h1>
+      <Button className="addBtn" name="Ajouter un objectif" onClick={addObjective} />
+    </div>
+  );
 };
 
 export default Header;

@@ -6,6 +6,25 @@
  background-color: #fafbfb;
 }
 
+/* Responsive container */
+@media (max-width: 1200px) {
+ .container {
+   padding: 0 100px;
+ }
+}
+
+@media (max-width: 992px) {
+ .container {
+   padding: 0 50px;
+ }
+}
+
+@media (max-width: 768px) {
+ .container {
+   padding: 0 20px;
+ }
+}
+
 .header {
  display: flex;
  justify-content: space-between;
@@ -13,11 +32,20 @@
  padding: 50px 0;
 }
 
+
+
 .title {
  color: #3b82f6;
  font-size: 28px;
  font-weight: bolder;
  margin: 0;
+}
+
+/* Responsive title */
+@media (max-width: 768px) {
+ .title {
+   font-size: 24px;
+ }
 }
 
 .add-button {
@@ -30,11 +58,17 @@
  cursor: pointer;
 }
 
+/* Responsive button */
+
+
 .tabs {
  display: flex;
  border-bottom: 1px solid #e5e7eb;
  margin-bottom: 20px;
 }
+
+/* Responsive tabs */
+
 
 .tab {
  background: none;
@@ -65,12 +99,26 @@
  padding: 20px 0;
 }
 
+/* Responsive content */
+@media (max-width: 768px) {
+ .content {
+   padding: 15px 0;
+ }
+}
+
 .card-message{
  background-color: #ffffff;
  border-radius: 8px;
  padding: 40px;
  text-align: center;
  color: #6b7280;
+}
+
+/* Responsive card message */
+@media (max-width: 768px) {
+ .card-message {
+   padding: 20px;
+ }
 }
 
 .cards-container {
@@ -80,13 +128,73 @@
 }
 
 .card-item {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 40px 16px;
  background-color: #ffffff;
  border-radius: 8px;
+ position: relative;
+ padding: 32px;
 }
+
+
+
+.card-info {
+ flex: 1;
+}
+
+.card-actions {
+ display: flex;
+ align-items: center;
+ margin-top: 16px;
+}
+
+.icon-buttons {
+ position: absolute;
+ bottom: 24px;
+ right: 24px;
+ display: flex;
+ gap: 8px;
+}
+
+.new-progress-button {
+ position: absolute;
+ top: 24px;
+ right: 24px;
+}
+
+.icon-button {
+ position: absolute;
+ background: none;
+ border: none;
+ color: #6B7280;
+ cursor: pointer;
+}
+
+.icon-button.delete {
+ top: 24px;
+ right: 16px;
+}
+
+.icon-button.edit {
+ bottom: 24px;
+ right: 16px;
+}
+
+.icon {
+ color: #6b7280;
+ font-size: 18px;
+}
+
+.icon-button:hover .icon {
+ color: #3b82f6;
+}
+
+.objective-value {
+ color: #4b5563;
+ font-size: 14px;
+ margin-top: 8px;
+}
+
+/* Responsive styles for card actions */
+
 
 .card-info h3 {
  margin: 0 0 4px 0;
@@ -123,6 +231,15 @@
  max-width: 500px;
  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Responsive modal */
+@media (max-width: 576px) {
+ .modal-container {
+   margin: 0 20px;
+   padding: 20px;
+ }
+}
+
 .modal-header{
  display: flex;
  justify-content: space-between;
@@ -134,6 +251,14 @@
  font-weight: 600;
  margin: 0 0 24px 0;
  color: #1f2937;
+}
+
+/* Responsive modal title */
+@media (max-width: 576px) {
+ .modal-title {
+   font-size: 18px;
+   margin-bottom: 20px;
+ }
 }
 
 .modal-close {
@@ -184,6 +309,19 @@ input::placeholder {
  margin-top: 24px;
 }
 
+/* Responsive modal actions */
+@media (max-width: 576px) {
+ .modal-actions {
+   flex-direction: column;
+   gap: 10px;
+ }
+ 
+ .button-cancel,
+ .button-save {
+   width: 100%;
+ }
+}
+
 .button-cancel {
  padding: 8px 16px;
  font-size: 14px;
@@ -218,11 +356,24 @@ input::placeholder {
  margin-bottom: 32px;
 }
 
+@media (max-width: 768px) {
+ .stats-cards-container {
+   flex-direction: column;
+ }
+}
+
 .stats-card {
  flex: 1;
  border-radius: 8px;
  padding: 32px;
  background-color: #f0f5ff;
+}
+
+/* Responsive stats card */
+@media (max-width: 768px) {
+ .stats-card {
+   padding: 20px;
+ }
 }
 
 .blue {
@@ -246,6 +397,13 @@ input::placeholder {
  color: #10233d;
 }
 
+/* Responsive stats numbers */
+@media (max-width: 768px) {
+ .stats-number {
+   font-size: 24px;
+ }
+}
+
 .progression-title {
  font-size: 16px;
  font-weight: 500;
@@ -260,6 +418,12 @@ input::placeholder {
  margin-bottom: 24px;
 }
 
+/* Responsive progression card */
+@media (max-width: 768px) {
+ .progression-card {
+   padding: 20px;
+ }
+}
 
 .objective-title {
  font-size: 16px;

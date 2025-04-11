@@ -1,22 +1,36 @@
 import "./App.css";
 import Header from "./components/Header.jsx";
 import Links from "./components/Links.jsx";
-import Card from "./components/Card.jsx";
 import Modal from "./components/Modal.jsx"
-import Performance from "./components/Performance.jsx";
+import ProgressionSection from "./components/ProgressionSection.jsx";
+import ObjectifsSection from "./components/ObjectivesSection.jsx";
+import { useState } from "react";
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState('objectives');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  
+
+ 
   return (
     <div className="container">
-      <Header></Header>
-      <Links></Links>
-      <div className="content">   
-        <Card></Card>
+      <Header addObjective= {handleOpenModal} />
+      <Links activeTab= {activeTab} changeTo= {setActiveTab} />
+      
+      <div className="content">  
+        {activeTab === 'objectives' ? <ObjectifsSection /> : <ProgressionSection />}
       </div>
-      {/* <Performance /> */}
-      {/* <Modal></Modal> */}
+        {isModalOpen && <Modal onClose={handleCloseModal} />}
     </div>
   );
 };
 
 export default App;
+
